@@ -118,9 +118,9 @@ class ArticleController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id)
+    public function actionDelete($slug)
     {
-        $model = $this->findModel($id);
+        $model = $this->findModel($slug);
         if ($model->created_by !== Yii::$app->user->id){
             throw new ForbiddenHttpException("You do not have permission to delete this article");
         }
